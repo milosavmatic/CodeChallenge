@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Color Variables
 $background: #30335a;
 $action-icon: #fff;
@@ -6,13 +8,13 @@ $action-active: #fedd31;
 
 // Size Variables
 $game-field-size: 200px;
-$action-size: #{$game-field-size / 2};
+$action-size: #{math.div($game-field-size, 2)};
 
 // Font Variables
 $font-primary: "Indie Flower", cursive;
 
 // Breakpoints
-$mobile-breakpoint: 550px;
+$mobile-breakpoint: 764px;
 
 // Animation Variables
 $transition-duration: 400ms;

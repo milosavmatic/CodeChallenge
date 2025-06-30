@@ -1,3 +1,6 @@
+@use './variables' as *;
+@use './mixins' as *;
+
 .connection {
   display: block;
   position: absolute;

@@ -1,9 +1,6 @@
+@use './app';
+@use './connections';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './_variables';
-@import './_mixins';
-
-@import './_app.scss';
-@import './_connections';
