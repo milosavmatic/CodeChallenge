@@ -1,6 +1,6 @@
 {
   "name": "Rock Paper Scissors Lizard Spock",
-  "short_name": "RPS Game",
+  "short_name": "RPSLS Game",
   "description": "Play the classic Rock Paper Scissors Lizard Spock game with history tracking",
   "start_url": "/",
   "display": "standalone",
