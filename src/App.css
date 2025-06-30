@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+:root {
+  --background: #30335a;
+  --action-icon: #fff;
+  --action-background: #6365a9;
+  --action-active: #fedd31;
+  --game-field-size: 200px;
+  --action-size: calc(var(--game-field-size) / 2);
+}
+
+body {
+  font-family: "Indie Flower", cursive;
+}
+
+.connection.spock--rock {
+  transform: rotate(140deg);
+  left: calc(var(--action-size) * 1.5);
+  top: calc(40% - var(--action-size) / 2.2);
+
+  @media (max-width: 550px) {
+    left: calc(var(--action-size) / 2);
+    top: calc(40% - var(--action-size) / 3.2);
+  }
+}
+
+.connection.spock--rock .stem {
+  width: calc(var(--action-size) / 1);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) / 1.5);
+  }
+}
+
+.connection.paper--rock {
+  transform: rotate(40deg);
+  top: calc(55% - var(--action-size) * 1.4);
+  left: calc(77% - var(--action-size));
+
+  @media (max-width: 550px) {
+    transform: rotate(40deg);
+    left: calc(var(--action-size) * 1.8);
+    top: calc(40% - var(--action-size) / 3.2);
+  }
+}
+.connection.paper--rock .stem {
+  width: calc(var(--action-size) / 1);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) / 1.5);
+  }
+}
+
+.connection.scissors--paper {
+  transform: rotate(110deg);
+  top: calc(84% - var(--action-size) / 1.4);
+  left: calc(80% - var(--action-size) / 2.5);
+
+  @media (max-width: 550px) {
+    top: calc(95% - var(--action-size));
+    left: calc(80% - var(--action-size) / 4.5);
+  }
+}
+.connection.scissors--paper .stem {
+  width: calc(var(--action-size) / 2);
+}
+
+.connection.lizard--spock {
+  transform: rotate(70deg);
+  top: calc(87% - var(--action-size) / 1.2);
+  left: calc(var(--action-size));
+
+  @media (max-width: 550px) {
+    top: calc(95% - var(--action-size));
+    left: calc(var(--action-size) / 2.5);
+  }
+}
+.connection.lizard--spock .stem {
+  width: calc(var(--action-size) / 2);
+}
+
+.connection.scissors--lizard {
+  top: 90%;
+  left: calc(50% - var(--action-size) / 4);
+
+  @media (max-width: 550px) {
+    left: calc(45% - var(--action-size) / 4);
+  }
+}
+
+.connection.scissors--lizard .stem {
+  width: calc(var(--action-size) / 2);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) / 1.4);
+  }
+}
+
+.connection.rock--lizard {
+  transform: rotate(-70deg);
+  top: calc(var(--action-size) * 3.5);
+  left: calc(50% - var(--action-size) * 2);
+
+  @media (max-width: 550px) {
+    transform: rotate(-75deg);
+    top: calc(var(--action-size) * 2.3);
+    left: calc(50% - var(--action-size) * 1.4);
+  }
+}
+.connection.rock--lizard .stem {
+  width: calc(var(--action-size) * 2.8);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) * 2.1);
+  }
+}
+
+.connection.rock--scissors {
+  transform: rotate(-110deg);
+  top: calc(var(--action-size) * 3.5);
+  left: calc(50% - var(--action-size) / 1.3);
+
+  @media (max-width: 550px) {
+    transform: rotate(-105deg);
+    top: calc(var(--action-size) * 2.3);
+    left: calc(60% - var(--action-size));
+  }
+}
+.connection.rock--scissors .stem {
+  width: calc(var(--action-size) * 2.8);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) * 2.1);
+  }
+}
+
+.connection.paper--spock {
+  top: 50%;
+  left: calc(48% - var(--action-size));
+
+  @media (max-width: 550px) {
+    left: calc(70% - var(--action-size));
+  }
+}
+.connection.paper--spock .stem {
+  width: calc(var(--action-size) * 2.3);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) / 1.2);
+  }
+}
+
+.connection.spock--scissors {
+  transform: rotate(-140deg);
+  top: calc(50% + var(--action-size) / 1.1);
+  left: calc(var(--action-size) * 1.8);
+
+  @media (max-width: 550px) {
+    top: calc(51% + var(--action-size) / 1.3);
+    left: calc(var(--action-size) / 1.2);
+  }
+}
+.connection.spock--scissors .stem {
+  width: calc(var(--action-size) * 2.5);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) * 1.3);
+  }
+}
+
+.connection.lizard--paper {
+  transform: rotate(140deg);
+  top: calc(80% - var(--action-size) / 1.1);
+  left: calc(var(--action-size) * 2.1);
+
+  @media (max-width: 550px) {
+    top: calc(50% + var(--action-size) / 1.3);
+    left: calc(var(--action-size) / 1.2);
+  }
+}
+.connection.lizard--paper .stem {
+  width: calc(var(--action-size) * 2.5);
+
+  @media (max-width: 550px) {
+    width: calc(var(--action-size) * 1.3);
+  }
+}
+
+.connection {
+  display: block;
+  position: absolute;
+  transition: all 400ms ease-in-out;
+}
+
+.connection.active .stem {
+  background-color: var(--action-active);
+}
+
+.connection.active .head {
+  border-color: transparent transparent var(--action-active) transparent;
+}
+
+.connection .stem {
+  display: block;
+  position: relative;
+  height: 2px;
+  background-color: var(--action-icon);
+}
+
+.connection .head {
+  display: block;
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  width: 0px;
+  height: 0px;
+  transform: rotate(270deg);
+  border-style: solid;
+  border-width: 0 3px 8px 3px;
+  border-color: transparent transparent var(--action-icon) transparent;
+}
