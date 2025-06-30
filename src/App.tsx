@@ -104,7 +104,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen grid xl:grid-cols-2 grid-cols-1 gap-y-5 md:gap-y-0 bg-mobile-bg md:bg-desktop-bg bg-cover bg-center bg-no-repeat px-4 md:px-0 pb-10 md:pb-20 relative">
+    <div className="min-h-screen grid xl:grid-cols-2 grid-cols-1 bg-mobile-bg md:bg-desktop-bg bg-cover bg-center bg-no-repeat px-4 md:px-0 pb-10 md:pb-20 relative">
       <div className="absolute top-4 left-4 z-10">
         <HistoryButton onClick={() => setShowHistory(true)} />
       </div>
