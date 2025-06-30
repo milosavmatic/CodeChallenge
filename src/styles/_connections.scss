@@ -1,0 +1,217 @@
+.connection {
+  display: block;
+  position: absolute;
+  transition: all $transition-duration $transition-easing;
+
+  &.active {
+    .stem {
+      background-color: $action-active;
+    }
+
+    .head {
+      border-color: transparent transparent $action-active transparent;
+    }
+  }
+
+  .stem {
+    display: block;
+    position: relative;
+    height: 2px;
+    background-color: $action-icon;
+  }
+
+  .head {
+    display: block;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    width: 0px;
+    height: 0px;
+    transform: rotate(270deg);
+    border-style: solid;
+    border-width: 0 3px 8px 3px;
+    border-color: transparent transparent $action-icon transparent;
+  }
+
+  // Specific connection styles
+  &.spock--rock {
+    transform: rotate(140deg);
+    left: calc(#{$action-size} * 1.5);
+    top: calc(40% - #{$action-size} / 2.2);
+
+    @include mobile {
+      left: calc(#{$action-size} / 2);
+      top: calc(40% - #{$action-size} / 3.2);
+    }
+
+    .stem {
+      width: $action-size;
+
+      @include mobile {
+        width: calc(#{$action-size} / 1.5);
+      }
+    }
+  }
+
+  &.paper--rock {
+    transform: rotate(40deg);
+    top: calc(55% - #{$action-size} * 1.4);
+    left: calc(77% - #{$action-size});
+
+    @include mobile {
+      transform: rotate(40deg);
+      left: calc(#{$action-size} * 1.8);
+      top: calc(40% - #{$action-size} / 3.2);
+    }
+
+    .stem {
+      width: $action-size;
+
+      @include mobile {
+        width: calc(#{$action-size} / 1.5);
+      }
+    }
+  }
+
+  &.scissors--paper {
+    transform: rotate(110deg);
+    top: calc(84% - #{$action-size} / 1.4);
+    left: calc(80% - #{$action-size} / 2.5);
+
+    @include mobile {
+      top: calc(95% - #{$action-size});
+      left: calc(80% - #{$action-size} / 4.5);
+    }
+
+    .stem {
+      width: calc(#{$action-size} / 2);
+    }
+  }
+
+  &.lizard--spock {
+    transform: rotate(70deg);
+    top: calc(87% - #{$action-size} / 1.2);
+    left: $action-size;
+
+    @include mobile {
+      top: calc(95% - #{$action-size});
+      left: calc(#{$action-size} / 2.5);
+    }
+
+    .stem {
+      width: calc(#{$action-size} / 2);
+    }
+  }
+
+  &.scissors--lizard {
+    top: 90%;
+    left: calc(50% - #{$action-size} / 4);
+
+    @include mobile {
+      left: calc(45% - #{$action-size} / 4);
+    }
+
+    .stem {
+      width: calc(#{$action-size} / 2);
+
+      @include mobile {
+        width: calc(#{$action-size} / 1.4);
+      }
+    }
+  }
+
+  &.rock--lizard {
+    transform: rotate(-70deg);
+    top: calc(#{$action-size} * 3.5);
+    left: calc(50% - #{$action-size} * 2);
+
+    @include mobile {
+      transform: rotate(-75deg);
+      top: calc(#{$action-size} * 2.3);
+      left: calc(50% - #{$action-size} * 1.4);
+    }
+
+    .stem {
+      width: calc(#{$action-size} * 2.8);
+
+      @include mobile {
+        width: calc(#{$action-size} * 2.1);
+      }
+    }
+  }
+
+  &.rock--scissors {
+    transform: rotate(-110deg);
+    top: calc(#{$action-size} * 3.5);
+    left: calc(50% - #{$action-size} / 1.3);
+
+    @include mobile {
+      transform: rotate(-105deg);
+      top: calc(#{$action-size} * 2.3);
+      left: calc(60% - #{$action-size});
+    }
+
+    .stem {
+      width: calc(#{$action-size} * 2.8);
+
+      @include mobile {
+        width: calc(#{$action-size} * 2.1);
+      }
+    }
+  }
+
+  &.paper--spock {
+    top: 50%;
+    left: calc(48% - #{$action-size});
+
+    @include mobile {
+      left: calc(70% - #{$action-size});
+    }
+
+    .stem {
+      width: calc(#{$action-size} * 2.3);
+
+      @include mobile {
+        width: calc(#{$action-size} / 1.2);
+      }
+    }
+  }
+
+  &.spock--scissors {
+    transform: rotate(-140deg);
+    top: calc(50% + #{$action-size} / 1.1);
+    left: calc(#{$action-size} * 1.8);
+
+    @include mobile {
+      top: calc(51% + #{$action-size} / 1.3);
+      left: calc(#{$action-size} / 1.2);
+    }
+
+    .stem {
+      width: calc(#{$action-size} * 2.5);
+
+      @include mobile {
+        width: calc(#{$action-size} * 1.3);
+      }
+    }
+  }
+
+  &.lizard--paper {
+    transform: rotate(140deg);
+    top: calc(80% - #{$action-size} / 1.1);
+    left: calc(#{$action-size} * 2.1);
+
+    @include mobile {
+      top: calc(50% + #{$action-size} / 1.3);
+      left: calc(#{$action-size} / 1.2);
+    }
+
+    .stem {
+      width: calc(#{$action-size} * 2.5);
+
+      @include mobile {
+        width: calc(#{$action-size} * 1.3);
+      }
+    }
+  }
+}

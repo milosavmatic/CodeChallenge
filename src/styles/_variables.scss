@@ -1,0 +1,19 @@
+// Color Variables
+$background: #30335a;
+$action-icon: #fff;
+$action-background: #6365a9;
+$action-active: #fedd31;
+
+// Size Variables
+$game-field-size: 200px;
+$action-size: #{$game-field-size / 2};
+
+// Font Variables
+$font-primary: "Indie Flower", cursive;
+
+// Breakpoints
+$mobile-breakpoint: 550px;
+
+// Animation Variables
+$transition-duration: 400ms;
+$transition-easing: ease-in-out;

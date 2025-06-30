@@ -7,7 +7,6 @@ import HistoryButton from './components/HistoryButton'
 import Toast from './components/Toast'
 import { getChoices, playGame } from './services/api'
 import { saveGameToHistory } from './services/gameHistory'
-import './App.css'
 
 function App() {
   const [choices, setChoices] = useState<Choice[]>([])
