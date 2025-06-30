@@ -1,5 +1,6 @@
 import type { Choice } from '../models/game'
 import { getChoiceImage, getChoicePosition } from '../utils/gameUtils'
+import GameConnections from './GameConnections'
 import PlayingOverlay from './PlayingOverlay'
 
 interface GameGridProps {
@@ -26,58 +27,8 @@ export default function GameGrid({ choices, onChoiceClick, isPlaying }: GameGrid
               <img src={getChoiceImage(choice.name)} alt={choice.name} id={choice.name} />
             </div>
           ))}
-          
         </div>
-        <div className="connection spock--rock">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection paper--rock">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection scissors--paper">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection lizard--spock">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection scissors--lizard">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection rock--lizard">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection rock--scissors">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection paper--spock">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection spock--scissors">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
-        <div className="connection lizard--paper">
-          <span className="stem">
-            <span className="head"></span>
-          </span>
-        </div>
+        <GameConnections />
       </div>
     </div>
 
