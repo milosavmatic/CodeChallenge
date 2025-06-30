@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'desktop-bg': 'url(\'./src/assets/DesktopBgd.png\')',
-        'mobile-bg': 'url(\'./src/assets/MobileBgd.png\')',
+        'desktop-bg': 'url("/src/assets/desktopBgd.png")',
+        'mobile-bg': 'url("/src/assets/mobileBgd.png")',
       },
       spacing: {
         '128': '32rem',
