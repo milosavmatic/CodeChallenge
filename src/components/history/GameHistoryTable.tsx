@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { GameHistory } from '../../models/history'
 import { getGameHistory, clearGameHistory, getGameStats } from '../../services/gameHistory'
+import { lockBodyScroll, unlockBodyScroll, cleanupBodyScrollLock } from '../../utils/bodyScrollLock'
 import { getChoiceImage } from '../../utils/gameUtils'
 import { formatDate, getResultColor, getResultText } from '../../utils/historyUtils'
 import ConfirmModal from '../ui/ConfirmModal'
@@ -31,7 +32,13 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
   useEffect(() => {
     if (isVisible) {
       loadHistory()
+      lockBodyScroll()
+    } else {
+      unlockBodyScroll()
     }
+
+    // Cleanup: ensure body scroll is restored when component unmounts
+    return cleanupBodyScrollLock
   }, [isVisible])
 
   const handleClearHistory = () => {

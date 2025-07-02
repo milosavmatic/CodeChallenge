@@ -76,6 +76,9 @@ A modern implementation of the classic Rock Paper Scissors game with the extende
 src/
 ├── components/           # React components organized by feature
 │   ├── game/            # Game-specific components
+│   │   ├── __tests__/   # Game component tests
+│   │   │   ├── ScoreDisplay.test.tsx
+│   │   │   └── TutorialMode.integration.test.tsx
 │   │   ├── GameBoard.tsx
 │   │   ├── GameComparison.tsx
 │   │   ├── GameConnections.tsx
@@ -86,12 +89,16 @@ src/
 │   │   ├── ScoreDisplay.tsx
 │   │   └── TutorialMode.tsx
 │   ├── tutorial/        # Tutorial-specific components
+│   │   ├── __tests__/   # Tutorial component tests
+│   │   │   └── TutorialHeader.test.tsx
 │   │   ├── TutorialChoiceGrid.tsx
 │   │   ├── TutorialGameResult.tsx
 │   │   ├── TutorialHeader.tsx
 │   │   ├── TutorialNavigation.tsx
 │   │   └── TutorialPlaySection.tsx
 │   ├── ui/              # Reusable UI components
+│   │   ├── __tests__/   # UI component tests
+│   │   │   └── ReloadButton.test.tsx
 │   │   ├── ConfirmModal.tsx
 │   │   ├── ReloadButton.tsx
 │   │   └── Toast.tsx
@@ -106,6 +113,9 @@ src/
 │   ├── history.ts       # History-related types (GameHistory, GameStats)
 │   └── tutorial.ts      # Tutorial-related types (TutorialStep, TutorialModeProps)
 ├── services/            # Business logic and external services
+│   ├── __tests__/       # Service layer tests
+│   │   ├── tutorialContentService.test.ts
+│   │   └── tutorialGameService.test.ts
 │   ├── api.ts           # External API service
 │   ├── gameHistory.ts   # Game history management
 │   ├── tutorialContentService.ts  # Tutorial content management
@@ -115,8 +125,14 @@ src/
 │       ├── index.ts     # Tutorial data exports
 │       └── steps.ts     # Tutorial step definitions
 ├── utils/               # Utility functions
+│   ├── __tests__/       # Utility function tests
+│   │   └── gameUtils.test.ts
+│   ├── bodyScrollLock.ts # Body scroll lock utilities for modals
 │   ├── gameUtils.ts     # Game-related utilities
 │   └── historyUtils.ts  # History-related utilities
+├── test/                # Testing utilities and configuration
+│   ├── setup.ts         # Global test configuration
+│   └── utils.ts         # Test utilities and mock data
 ├── styles/              # SCSS stylesheets
 │   ├── _app.scss
 │   ├── _connections.scss
