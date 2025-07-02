@@ -207,6 +207,12 @@ npm run preview      # Preview production build
 # Building
 npm run build        # Build for production
 
+# Testing
+npm test             # Run tests in watch mode
+npm run test:run     # Run tests once
+npm run test:ui      # Run tests with UI interface
+npm run test:coverage # Run tests with coverage report
+
 # Code Quality
 npm run lint         # Run ESLint
 npm run format       # Format code with Prettier
@@ -244,7 +250,60 @@ npx tsc --build      # Type check with project references
 - **Modular tutorial system** with reusable components
 - **Clean code organization** following modern React patterns
 
-## 💾 Data Storage Strategy
+## 🧪 Testing Strategy
+
+### Testing Architecture
+The project follows a comprehensive testing strategy that aligns with our clean architecture:
+
+- **Service Layer Tests**: Business logic and game mechanics testing
+- **Utility Function Tests**: Pure function testing with predictable inputs/outputs
+- **Component Tests**: UI component behavior and rendering
+- **Integration Tests**: End-to-end component interactions and service integration
+
+### Testing Framework
+- **[Vitest 3.2.4](https://vitest.dev/)** - Fast unit test runner with Vite integration
+- **[React Testing Library](https://testing-library.com/react)** - Component testing utilities
+- **[Jest DOM](https://github.com/testing-library/jest-dom)** - Custom Jest matchers for DOM assertions
+- **[User Event](https://testing-library.com/docs/user-events/intro)** - User interaction simulation
+
+### Test Organization
+```
+src/
+├── test/
+│   ├── setup.ts         # Global test configuration
+│   └── utils.ts         # Test utilities and mock data
+├── services/__tests__/  # Service layer tests
+├── utils/__tests__/     # Utility function tests
+└── components/
+    ├── ui/__tests__/      # UI component tests
+    ├── game/__tests__/    # Game component tests
+    └── tutorial/__tests__/ # Tutorial component tests
+```
+
+### Test Coverage
+- **Services**: Game simulation logic, content management, data persistence
+- **Components**: Rendering, user interactions, prop handling, accessibility
+- **Utils**: Image path resolution, game utility functions
+- **Integration**: Component composition and service interaction
+
+### Running Tests
+```bash
+# Development testing
+npm test                 # Watch mode for development
+npm run test:ui         # Visual test interface
+
+# CI/Production testing
+npm run test:run        # Single run for CI
+npm run test:coverage   # Coverage reports
+```
+
+### Test Best Practices
+- **Mock external dependencies**: SVG imports, localStorage, services
+- **Test behavior, not implementation**: Focus on user-facing functionality
+- **Service layer isolation**: Test business logic independently from UI
+- **Accessibility testing**: Ensure components work with screen readers
+- **Integration testing**: Verify component and service collaboration
+
 
 ### Why localStorage for Game History?
 
