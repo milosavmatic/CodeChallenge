@@ -11,7 +11,7 @@ export const getChoiceImage = (choiceName: string) => {
     paper,
     scissors,
     lizard,
-    spock
+    spock,
   }
   return imageMap[choiceName.toLowerCase()] || rock
 }
@@ -22,8 +22,10 @@ export const getChoicePosition = (choiceName: string) => {
     rock: 'col-start-2 row-start-1',
     spock: 'col-start-1 row-start-2',
     paper: 'col-start-3 row-start-2',
-    lizard: 'md:col-start-2 col-start-1 row-start-3 justify-self-start self-center md:ml-[-120px] mt-10',
-    scissors: 'md:col-start-2 col-start-3 row-start-3 justify-self-end self-center md:mr-[-120px] mt-10'
+    lizard:
+      'md:col-start-2 col-start-1 row-start-3 justify-self-start self-center md:ml-[-120px] mt-10',
+    scissors:
+      'md:col-start-2 col-start-3 row-start-3 justify-self-end self-center md:mr-[-120px] mt-10',
   }
   return positions[choiceName.toLowerCase()] || 'col-start-2 row-start-1'
 }
@@ -31,12 +33,12 @@ export const getChoicePosition = (choiceName: string) => {
 // Get the result message for display
 export const getResultMessage = (gameResult: GameResult | null): string => {
   if (!gameResult) return 'No game played'
-  
+
   const messages = {
     win: 'You win!',
     lose: 'You lose!',
-    tie: 'It\'s a tie!'
+    tie: "It's a tie!",
   }
-  
+
   return messages[gameResult.results] || 'Unknown result'
 }

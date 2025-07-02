@@ -1,5 +1,5 @@
-import type { GameResult } from '../models/game'
-import { getResultMessage } from '../utils/gameUtils'
+import type { GameResult } from '../../models/game'
+import { getResultMessage } from '../../utils/gameUtils'
 
 interface ResultMessageProps {
   gameResult: GameResult | null

@@ -1,5 +1,5 @@
-import type { Choice, GameResult } from '../models/game'
-import { getChoiceImage } from '../utils/gameUtils'
+import type { Choice, GameResult } from '../../models/game'
+import { getChoiceImage } from '../../utils/gameUtils'
 
 interface GameComparisonProps {
   choices: Choice[]
@@ -13,7 +13,9 @@ export default function GameComparison({ choices, gameResult }: GameComparisonPr
         <div className="text-center">
           <div className="mt-1 md:mb-4 h-[100px] w-[100px] md:w-[182px] md:h-[188px]">
             <img
-              src={getChoiceImage(choices.find(choice => choice.id === gameResult.player)?.name || '')}
+              src={getChoiceImage(
+                choices.find(choice => choice.id === gameResult.player)?.name || ''
+              )}
               alt={choices.find(choice => choice.id === gameResult.player)?.name || 'Player choice'}
               className="mx-auto"
             />
@@ -24,8 +26,12 @@ export default function GameComparison({ choices, gameResult }: GameComparisonPr
         <div className="text-center">
           <div className="mt-1 md:mb-4 h-[100px] w-[100px] md:w-[182px] md:h-[188px]">
             <img
-              src={getChoiceImage(choices.find(choice => choice.id === gameResult.computer)?.name || '')}
-              alt={choices.find(choice => choice.id === gameResult.computer)?.name || 'Computer choice'}
+              src={getChoiceImage(
+                choices.find(choice => choice.id === gameResult.computer)?.name || ''
+              )}
+              alt={
+                choices.find(choice => choice.id === gameResult.computer)?.name || 'Computer choice'
+              }
               className="mx-auto"
             />
           </div>

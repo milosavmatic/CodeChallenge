@@ -14,7 +14,7 @@ export default function Toast({ message, type, isVisible, onClose, duration = 50
       const timer = setTimeout(() => {
         onClose()
       }, duration)
-      
+
       return () => clearTimeout(timer)
     }
   }, [isVisible, duration, onClose])
@@ -22,8 +22,9 @@ export default function Toast({ message, type, isVisible, onClose, duration = 50
   if (!isVisible) return null
 
   const getToastStyles = () => {
-    const baseStyles = 'fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out max-w-md'
-    
+    const baseStyles =
+      'fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out max-w-md'
+
     switch (type) {
       case 'error':
         return `${baseStyles} bg-red-500 text-white border-l-4 border-red-700`

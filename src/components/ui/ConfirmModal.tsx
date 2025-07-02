@@ -15,7 +15,7 @@ export default function ConfirmModal({
   confirmText = 'Confirm',
   cancelText = 'Cancel',
   onConfirm,
-  onCancel
+  onCancel,
 }: ConfirmModalProps) {
   if (!isVisible) return null
 
@@ -25,7 +25,7 @@ export default function ConfirmModal({
         <div className="p-6">
           <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
           <p className="text-gray-600 mb-6">{message}</p>
-          
+
           <div className="flex justify-end space-x-3">
             <button
               onClick={onCancel}

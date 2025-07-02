@@ -1,4 +1,4 @@
-import ReloadIcon from '../assets/reload.svg?react'
+import ReloadIcon from '../../assets/reload.svg?react'
 
 interface ReloadButtonProps {
   onReload?: () => void

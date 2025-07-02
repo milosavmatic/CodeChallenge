@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import type { GameHistory } from '../models/game'
-import { getGameHistory, clearGameHistory, getGameStats } from '../services/gameHistory'
-import { getChoiceImage } from '../utils/gameUtils'
-import { formatDate, getResultColor, getResultText } from '../utils/historyUtils'
-import ConfirmModal from './ConfirmModal'
+import type { GameHistory } from '../../models/history'
+import { getGameHistory, clearGameHistory, getGameStats } from '../../services/gameHistory'
+import { getChoiceImage } from '../../utils/gameUtils'
+import { formatDate, getResultColor, getResultText } from '../../utils/historyUtils'
+import ConfirmModal from '../ui/ConfirmModal'
 
 interface GameHistoryProps {
   isVisible: boolean
@@ -18,7 +18,7 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
     wins: 0,
     losses: 0,
     ties: 0,
-    winRate: 0
+    winRate: 0,
   })
 
   const loadHistory = () => {
@@ -52,7 +52,7 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[calc(100vh-2rem)] md:max-h-[90vh] overflow-hidden">
         <div className="p-6 border-b border-gray-200">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold text-gray-900">Game History</h2>
@@ -96,20 +96,30 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
             <table className="w-full">
               <thead className="bg-gray-50 sticky top-0">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">#</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Your Choice</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Computer Choice</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Result</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Score</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    #
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Date
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Your Choice
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Computer Choice
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Result
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                    Score
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {history.map((game, index) => (
                   <tr key={game.id} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-500 font-medium">
-                      {index + 1}
-                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-500 font-medium">{index + 1}</td>
                     <td className="px-4 py-3 text-sm text-gray-900">
                       {formatDate(game.timestamp)}
                     </td>
@@ -120,7 +130,9 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
                           alt={game.playerChoice.name}
                           className="w-8 h-8"
                         />
-                        <span className="text-sm text-gray-900 capitalize">{game.playerChoice.name}</span>
+                        <span className="text-sm text-gray-900 capitalize">
+                          {game.playerChoice.name}
+                        </span>
                       </div>
                     </td>
                     <td className="px-4 py-3">
@@ -130,7 +142,9 @@ export default function GameHistoryTable({ isVisible, onClose }: GameHistoryProp
                           alt={game.computerChoice.name}
                           className="w-8 h-8"
                         />
-                        <span className="text-sm text-gray-900 capitalize">{game.computerChoice.name}</span>
+                        <span className="text-sm text-gray-900 capitalize">
+                          {game.computerChoice.name}
+                        </span>
                       </div>
                     </td>
                     <td className={`px-4 py-3 text-sm font-medium ${getResultColor(game.result)}`}>

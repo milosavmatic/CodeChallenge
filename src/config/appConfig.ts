@@ -23,10 +23,10 @@ export const getApiHeaders = (): Record<string, string> => {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
   }
-  
+
   if (config.api.key) {
     headers['Authorization'] = `Bearer ${config.api.key}`
   }
-  
+
   return headers
 }

@@ -8,13 +8,13 @@ const connections = [
   'rock--scissors',
   'paper--spock',
   'spock--scissors',
-  'lizard--paper'
+  'lizard--paper',
 ]
 
 export default function GameConnections() {
   return (
     <>
-      {connections.map((connection) => (
+      {connections.map(connection => (
         <div key={connection} className={`connection ${connection}`}>
           <span className="stem">
             <span className="head"></span>

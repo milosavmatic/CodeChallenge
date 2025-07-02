@@ -1,5 +1,5 @@
-import type { Choice } from '../models/game'
-import { getChoiceImage, getChoicePosition } from '../utils/gameUtils'
+import type { Choice } from '../../models/game'
+import { getChoiceImage, getChoicePosition } from '../../utils/gameUtils'
 import GameConnections from './GameConnections'
 import PlayingOverlay from './PlayingOverlay'
 
@@ -15,8 +15,8 @@ export default function GameGrid({ choices, onChoiceClick, isPlaying }: GameGrid
       <div className="relative w-[300px] h-[420px] md:w-[640px] md:h-[640px] grid place-items-center mx-auto">
         <div className="grid grid-cols-3 grid-rows-3 w-full h-full relative my-auto">
           <PlayingOverlay isVisible={isPlaying} />
-          
-          {choices.map((choice) => (
+
+          {choices.map(choice => (
             <div
               onClick={() => !isPlaying && onChoiceClick(choice.id)}
               key={choice.id}
@@ -31,6 +31,5 @@ export default function GameGrid({ choices, onChoiceClick, isPlaying }: GameGrid
         <GameConnections />
       </div>
     </div>
-
   )
 }
