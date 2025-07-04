@@ -30,7 +30,7 @@ export const getGameHistory = (): GameHistory[] => {
 
     const history = JSON.parse(historyJson)
     // Convert timestamp strings back to Date objects
-    return history.map((game: any) => ({
+    return history.map((game: GameHistory) => ({
       ...game,
       timestamp: new Date(game.timestamp),
     }))
