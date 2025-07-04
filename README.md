@@ -599,8 +599,8 @@ Create a `.env` file in the root directory:
 
 ```env
 # API Configuration
-VITE_API_BASE_URL=your_api_url_here
-VITE_APP_ENV=development
+VITE_API_BASE_URL=https://your-api-url.com
+VITE_APP_NAME=Your App Name
 
 # Add other environment variables as needed
 ```
