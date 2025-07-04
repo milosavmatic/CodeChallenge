@@ -1,9 +1,11 @@
+// Playing overlay component with loading animation
 interface PlayingOverlayProps {
   isVisible: boolean
   message?: string
 }
 
 export default function PlayingOverlay({ isVisible, message = 'Playing...' }: PlayingOverlayProps) {
+  // Don't render if not visible
   if (!isVisible) return null
 
   return (

@@ -1,23 +1,16 @@
-// Body scroll lock utility functions
+// Body scroll management for modal overlays
 
-/**
- * Prevents body from scrolling by adding overflow-hidden class
- */
+// Disable body scrolling when modal is open
 export const lockBodyScroll = (): void => {
   document.body.classList.add('overflow-hidden')
 }
 
-/**
- * Restores body scrolling by removing overflow-hidden class
- */
+// Re-enable body scrolling when modal is closed
 export const unlockBodyScroll = (): void => {
   document.body.classList.remove('overflow-hidden')
 }
 
-/**
- * Custom hook for managing body scroll lock in modals
- * @param isLocked - Whether the body scroll should be locked
- */
+// Manage body scroll state based on modal visibility
 export const useBodyScrollLock = (isLocked: boolean): void => {
   if (typeof window === 'undefined') return // SSR safety
 
@@ -28,10 +21,7 @@ export const useBodyScrollLock = (isLocked: boolean): void => {
   }
 }
 
-/**
- * Helper function to ensure body scroll is unlocked on cleanup
- * Use this in useEffect cleanup functions
- */
+// Cleanup function to ensure scroll is restored
 export const cleanupBodyScrollLock = (): void => {
   unlockBodyScroll()
 }

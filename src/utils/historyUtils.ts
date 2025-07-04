@@ -1,3 +1,6 @@
+// History display utilities for formatting and styling
+
+// Format date for compact display in history table
 export const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('en-US', {
     month: 'short',
@@ -7,6 +10,7 @@ export const formatDate = (date: Date) => {
   }).format(date)
 }
 
+// Get color class for game result display
 export const getResultColor = (result: string) => {
   switch (result) {
     case 'win':
@@ -20,6 +24,7 @@ export const getResultColor = (result: string) => {
   }
 }
 
+// Get display text for game result
 export const getResultText = (result: string) => {
   switch (result) {
     case 'win':

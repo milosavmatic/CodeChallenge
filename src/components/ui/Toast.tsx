@@ -1,14 +1,17 @@
+// Auto-dismissing toast notification with type-based styling
 import { useEffect } from 'react'
+import { getToastStyles, getToastIcon, type ToastType } from '../../utils/toastUtils'
 
 interface ToastProps {
   message: string
-  type: 'error' | 'success' | 'info'
+  type: ToastType
   isVisible: boolean
   onClose: () => void
   duration?: number
 }
 
 export default function Toast({ message, type, isVisible, onClose, duration = 5000 }: ToastProps) {
+  // Auto-dismiss timer with cleanup
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
@@ -21,39 +24,10 @@ export default function Toast({ message, type, isVisible, onClose, duration = 50
 
   if (!isVisible) return null
 
-  const getToastStyles = () => {
-    const baseStyles =
-      'fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out max-w-md'
-
-    switch (type) {
-      case 'error':
-        return `${baseStyles} bg-red-500 text-white border-l-4 border-red-700`
-      case 'success':
-        return `${baseStyles} bg-green-500 text-white border-l-4 border-green-700`
-      case 'info':
-        return `${baseStyles} bg-blue-500 text-white border-l-4 border-blue-700`
-      default:
-        return `${baseStyles} bg-gray-500 text-white`
-    }
-  }
-
-  const getIcon = () => {
-    switch (type) {
-      case 'error':
-        return '❌'
-      case 'success':
-        return '✅'
-      case 'info':
-        return 'ℹ️'
-      default:
-        return '📢'
-    }
-  }
-
   return (
-    <div className={getToastStyles()}>
+    <div className={getToastStyles(type)}>
       <div className="flex items-center gap-3">
-        <span className="text-xl">{getIcon()}</span>
+        <span className="text-xl">{getToastIcon(type)}</span>
         <div className="flex-1">
           <p className="font-medium">{message}</p>
         </div>

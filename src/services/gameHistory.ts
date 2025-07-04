@@ -1,9 +1,11 @@
+// Game history management with localStorage persistence
 import type { GameHistory } from '../models/history'
 
 const HISTORY_KEY = 'rps-game-history'
 const FIRST_TIME_KEY = 'rps-first-time-player'
 const MAX_HISTORY_ITEMS = 10
 
+// Save game result to history with auto-generated ID and size limit
 export const saveGameToHistory = (gameHistory: Omit<GameHistory, 'id'>): void => {
   try {
     const existingHistory = getGameHistory()
@@ -12,6 +14,7 @@ export const saveGameToHistory = (gameHistory: Omit<GameHistory, 'id'>): void =>
       id: crypto.randomUUID(),
     }
 
+    // Keep only latest 10 games
     const updatedHistory = [newGame, ...existingHistory].slice(0, MAX_HISTORY_ITEMS)
     localStorage.setItem(HISTORY_KEY, JSON.stringify(updatedHistory))
   } catch (error) {
@@ -19,12 +22,14 @@ export const saveGameToHistory = (gameHistory: Omit<GameHistory, 'id'>): void =>
   }
 }
 
+// Retrieve game history with date parsing
 export const getGameHistory = (): GameHistory[] => {
   try {
     const historyJson = localStorage.getItem(HISTORY_KEY)
     if (!historyJson) return []
 
     const history = JSON.parse(historyJson)
+    // Convert timestamp strings back to Date objects
     return history.map((game: any) => ({
       ...game,
       timestamp: new Date(game.timestamp),
@@ -43,6 +48,7 @@ export const clearGameHistory = (): void => {
   }
 }
 
+// Calculate game statistics from history
 export const getGameStats = () => {
   const history = getGameHistory()
   const totalGames = history.length
@@ -59,6 +65,7 @@ export const getGameStats = () => {
   }
 }
 
+// Check if this is the user's first visit
 export const isFirstTimePlayer = (): boolean => {
   try {
     return localStorage.getItem(FIRST_TIME_KEY) === null
@@ -68,6 +75,7 @@ export const isFirstTimePlayer = (): boolean => {
   }
 }
 
+// Mark user as returning player
 export const markPlayerAsReturning = (): void => {
   try {
     localStorage.setItem(FIRST_TIME_KEY, 'false')

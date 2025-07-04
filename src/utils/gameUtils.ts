@@ -37,7 +37,7 @@ export const getResultMessage = (gameResult: GameResult | null): string => {
   const messages = {
     win: 'You win!',
     lose: 'You lose!',
-    tie: "It's a tie!",
+    tie: 'It\'s a tie!',
   }
 
   return messages[gameResult.results] || 'Unknown result'

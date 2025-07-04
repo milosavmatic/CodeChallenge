@@ -1,3 +1,4 @@
+// Game results display component with score and comparison
 import type { Choice, GameResult } from '../../models/game'
 import ReloadButton from '../ui/ReloadButton'
 import GameComparison from './GameComparison'
@@ -22,6 +23,7 @@ export default function GameResults({
   className,
 }: GameResultsProps) {
   return (
+    // Main results container
     <div
       className={`flex flex-col md:gap-20 items-center justify-center w-full h-full relative ${className || ''}`}
     >

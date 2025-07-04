@@ -1,4 +1,5 @@
-import ReloadIcon from '../../assets/reload.svg?react'
+// Positioned reload button with hover rotation effect
+import ReloadIcon from '../../assets/icons/reload.svg?react'
 
 interface ReloadButtonProps {
   onReload?: () => void

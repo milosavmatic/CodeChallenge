@@ -1,20 +1,11 @@
-const connections = [
-  'spock--rock',
-  'paper--rock',
-  'scissors--paper',
-  'lizard--spock',
-  'scissors--lizard',
-  'rock--lizard',
-  'rock--scissors',
-  'paper--spock',
-  'spock--scissors',
-  'lizard--paper',
-]
+// Game connections visual component
+
+import { gameConnections } from '../../utils/gameConnections'
 
 export default function GameConnections() {
   return (
     <>
-      {connections.map(connection => (
+      {gameConnections.map(connection => (
         <div key={connection} className={`connection ${connection}`}>
           <span className="stem">
             <span className="head"></span>

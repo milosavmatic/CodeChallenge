@@ -1,3 +1,4 @@
+// Choice grid for tutorial practice
 import type { Choice } from '../../models/game'
 import { getChoiceImage } from '../../utils/gameUtils'
 
@@ -7,13 +8,13 @@ interface TutorialChoiceGridProps {
   selectedChoice: Choice | null
 }
 
-// Choice grid for tutorial practice
 export default function TutorialChoiceGrid({
   choices,
   onChoiceClick,
   selectedChoice
 }: TutorialChoiceGridProps) {
   return (
+    // Responsive grid: 3 columns on mobile, 5 columns on larger screens
     <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 md:gap-4 max-w-sm sm:max-w-lg mx-auto">
       {choices.map(choice => (
         <button

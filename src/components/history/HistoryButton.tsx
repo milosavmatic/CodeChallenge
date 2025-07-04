@@ -1,3 +1,4 @@
+// History button component with semi-transparent styling
 interface HistoryButtonProps {
   onClick: () => void
 }

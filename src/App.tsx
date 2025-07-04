@@ -8,9 +8,6 @@ import Toast from './components/ui/Toast'
 import { getChoices, playGame } from './services/api'
 import { saveGameToHistory, isFirstTimePlayer, markPlayerAsReturning } from './services/gameHistory'
 
-/**
- * Main App Component - Rock Paper Scissors Spock Lizard Game
- */
 function App() {
   // Game state
   const [choices, setChoices] = useState<Choice[]>([])

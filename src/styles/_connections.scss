@@ -1,11 +1,14 @@
+// Connection lines for Rock Paper Scissors Lizard Spock game
 @use "./variables" as *;
 @use "./mixins" as *;
 
+// Base connection styling with arrow heads
 .connection {
   display: block;
   position: absolute;
   transition: all $transition-duration $transition-easing;
 
+  // Active state highlighting
   &.active {
     .stem {
       background-color: $action-active;
@@ -16,6 +19,7 @@
     }
   }
 
+  // Connection line body
   .stem {
     display: block;
     position: relative;
@@ -23,6 +27,7 @@
     background-color: $action-icon;
   }
 
+  // Arrow head pointing to target
   .head {
     display: block;
     position: absolute;
@@ -36,7 +41,7 @@
     border-color: transparent transparent $action-icon transparent;
   }
 
-  // Specific connection styles
+  // Specific connection positioning for each game rule
   &.spock--rock {
     transform: rotate(140deg);
     left: calc(#{$action-size} * 1.5);

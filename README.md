@@ -73,86 +73,129 @@ A modern implementation of the classic Rock Paper Scissors game with the extende
 ## 📁 Project Structure
 
 ```
-src/
-├── components/           # React components organized by feature
-│   ├── game/            # Game-specific components
-│   │   ├── __tests__/   # Game component tests
-│   │   │   ├── ScoreDisplay.test.tsx
-│   │   │   └── TutorialMode.integration.test.tsx
-│   │   ├── GameBoard.tsx
-│   │   ├── GameComparison.tsx
-│   │   ├── GameConnections.tsx
-│   │   ├── GameGrid.tsx
-│   │   ├── GameResults.tsx
-│   │   ├── PlayingOverlay.tsx
-│   │   ├── ResultMessage.tsx
-│   │   ├── ScoreDisplay.tsx
-│   │   └── TutorialMode.tsx
-│   ├── tutorial/        # Tutorial-specific components
-│   │   ├── __tests__/   # Tutorial component tests
-│   │   │   └── TutorialHeader.test.tsx
-│   │   ├── TutorialChoiceGrid.tsx
-│   │   ├── TutorialGameResult.tsx
-│   │   ├── TutorialHeader.tsx
-│   │   ├── TutorialNavigation.tsx
-│   │   └── TutorialPlaySection.tsx
-│   ├── ui/              # Reusable UI components
-│   │   ├── __tests__/   # UI component tests
-│   │   │   └── ReloadButton.test.tsx
-│   │   ├── ConfirmModal.tsx
-│   │   ├── ReloadButton.tsx
-│   │   └── Toast.tsx
-│   ├── layout/          # Layout and state components
-│   │   ├── ErrorState.tsx
-│   │   └── LoadingState.tsx
-│   └── history/         # Game history components
-│       ├── GameHistoryTable.tsx
-│       └── HistoryButton.tsx
-├── models/              # TypeScript type definitions
-│   ├── game.ts          # Game-related types (Choice, GameResult)
-│   ├── history.ts       # History-related types (GameHistory, GameStats)
-│   └── tutorial.ts      # Tutorial-related types (TutorialStep, TutorialModeProps)
-├── services/            # Business logic and external services
-│   ├── __tests__/       # Service layer tests
-│   │   ├── tutorialContentService.test.ts
-│   │   └── tutorialGameService.test.ts
-│   ├── api.ts           # External API service
-│   ├── gameHistory.ts   # Game history management
-│   ├── tutorialContentService.ts  # Tutorial content management
-│   └── tutorialGameService.ts     # Tutorial game simulation
-├── data/                # Static data and configuration
-│   └── tutorial/        # Tutorial content
-│       ├── index.ts     # Tutorial data exports
-│       └── steps.ts     # Tutorial step definitions
-├── utils/               # Utility functions
-│   ├── __tests__/       # Utility function tests
-│   │   └── gameUtils.test.ts
-│   ├── bodyScrollLock.ts # Body scroll lock utilities for modals
-│   ├── gameUtils.ts     # Game-related utilities
-│   └── historyUtils.ts  # History-related utilities
-├── test/                # Testing utilities and configuration
-│   ├── setup.ts         # Global test configuration
-│   └── utils.ts         # Test utilities and mock data
-├── styles/              # SCSS stylesheets
-│   ├── _app.scss
-│   ├── _connections.scss
-│   ├── _mixins.scss
-│   ├── _variables.scss
-│   └── index.scss
-├── assets/              # Static assets (images, icons)
-│   ├── desktopBgd.png
-│   ├── lizard.png
-│   ├── mobileBgd.png
-│   ├── paper.png
-│   ├── refresh.svg
-│   ├── reload.svg
-│   ├── rock.png
-│   ├── scissors.png
-│   └── spock.png
-└── config/              # Configuration files
-    ├── appConfig.ts
-    └── env.ts
+CodeChallenge/
+├── .env                      # Environment variables
+├── .env.example              # Environment variables template
+├── .gitignore               # Git ignore rules
+├── .prettierrc              # Prettier configuration
+├── README.md                # Project documentation
+├── eslint.config.js         # ESLint configuration
+├── index.html               # Main HTML template
+├── package.json             # Dependencies and scripts
+├── package-lock.json        # Dependency lock file
+├── postcss.config.js        # PostCSS configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── tsconfig.json            # TypeScript root configuration
+├── tsconfig.app.json        # TypeScript app configuration
+├── tsconfig.node.json       # TypeScript Node.js configuration
+├── vite.config.ts           # Vite build configuration
+├── vitest.config.ts         # Vitest test configuration
+├── .vscode/                 # VS Code workspace settings
+│   ├── extensions.json      # Recommended extensions
+│   └── settings.json        # Workspace settings
+├── public/                  # Static public assets
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon.ico
+│   └── site.webmanifest
+└── src/                     # Source code
+    ├── App.tsx              # Main application component
+    ├── main.tsx             # Application entry point
+    ├── vite-env.d.ts        # Vite environment type definitions
+    ├── components/          # React components organized by feature
+    │   ├── game/           # Game-specific components
+    │   │   ├── __tests__/  # Game component tests
+    │   │   ├── GameBoard.tsx
+    │   │   ├── GameComparison.tsx
+    │   │   ├── GameConnections.tsx
+    │   │   ├── GameGrid.tsx
+    │   │   ├── GameResults.tsx
+    │   │   ├── PlayerDisplay.tsx
+    │   │   ├── PlayerPlaceholder.tsx
+    │   │   ├── PlayerResult.tsx
+    │   │   ├── PlayingOverlay.tsx
+    │   │   ├── ResultMessage.tsx
+    │   │   ├── ScoreDisplay.tsx
+    │   │   └── TutorialMode.tsx
+    │   ├── tutorial/       # Tutorial-specific components
+    │   │   ├── __tests__/  # Tutorial component tests
+    │   │   ├── ChoiceDisplay.tsx        # Reusable choice display with image and label
+    │   │   ├── GameComparison.tsx       # Player vs Computer comparison display
+    │   │   ├── ResetButton.tsx          # Reusable reset/try again button
+    │   │   ├── ResultMessage.tsx        # Game result message with dynamic styling
+    │   │   ├── TutorialChoiceGrid.tsx
+    │   │   ├── TutorialGameResult.tsx
+    │   │   ├── TutorialHeader.tsx
+    │   │   ├── TutorialNavigation.tsx
+    │   │   └── TutorialPlaySection.tsx
+    │   ├── ui/             # Reusable UI components
+    │   │   ├── __tests__/  # UI component tests
+    │   │   ├── ConfirmModal.tsx
+    │   │   ├── ReloadButton.tsx
+    │   │   └── Toast.tsx
+    │   ├── layout/         # Layout and state components
+    │   │   ├── ComparisonLayout.tsx
+    │   │   ├── ErrorState.tsx
+    │   │   └── LoadingState.tsx
+    │   └── history/        # Game history components
+    │       ├── GameHistoryList.tsx      # History table container with scrolling
+    │       ├── GameHistoryRow.tsx       # Individual game history table row
+    │       ├── GameHistoryTable.tsx     # Main history modal orchestrator
+    │       ├── GameStatsGrid.tsx        # Statistics display grid component
+    │       ├── HistoryButton.tsx
+    │       ├── HistoryModalFooter.tsx   # Modal footer with action buttons
+    │       └── HistoryModalHeader.tsx   # Modal header with title and stats
+    ├── models/             # TypeScript type definitions
+    │   ├── game.ts         # Game-related types (Choice, GameResult)
+    │   ├── history.ts      # History-related types (GameHistory, GameStats)
+    │   └── tutorial.ts     # Tutorial-related types (TutorialStep, TutorialModeProps)
+    ├── services/           # Business logic and external services
+    │   ├── __tests__/      # Service layer tests
+    │   ├── api.ts          # External API service
+    │   ├── gameHistory.ts  # Game history management
+    │   ├── tutorialContentService.ts  # Tutorial content management
+    │   └── tutorialGameService.ts     # Tutorial game simulation
+    ├── data/               # Static data and configuration
+    │   └── tutorial/       # Tutorial content
+    │       ├── index.ts    # Tutorial data exports
+    │       └── steps.ts    # Tutorial step definitions
+    ├── utils/              # Utility functions
+    │   ├── __tests__/      # Utility function tests
+    │   ├── bodyScrollLock.ts # Body scroll management for modal overlays
+    │   ├── gameConnections.ts # Game connection utilities
+    │   ├── gameUtils.ts    # Game-related utilities
+    │   ├── historyUtils.ts # History display utilities for formatting and styling
+    │   ├── resultUtils.ts  # Game result styling and messaging utilities
+    │   └── toastUtils.ts   # Toast styling and icon utilities
+    ├── test/               # Testing utilities and configuration
+    │   ├── setup.ts        # Global test configuration
+    │   └── utils.ts        # Test utilities and mock data
+    ├── styles/             # SCSS stylesheets
+    │   ├── _app.scss
+    │   ├── _connections.scss
+    │   ├── _mixins.scss
+    │   ├── _variables.scss
+    │   └── index.scss
+    ├── assets/             # Static assets (images, icons)
+    │   ├── icons/          # SVG icons
+    │   │   ├── refresh.svg
+    │   │   ├── reload.svg
+    │   │   └── warning.svg 
+    │   ├── desktopBgd.png  # Desktop background image
+    │   ├── lizard.png      # Lizard choice image
+    │   ├── mobileBgd.png   # Mobile background image
+    │   ├── paper.png       # Paper choice image
+    │   ├── rock.png        # Rock choice image
+    │   ├── scissors.png    # Scissors choice image
+    │   └── spock.png       # Spock choice image
+    └── config/             # Configuration files
+        └── appConfig.ts    # Application configuration
 ```
+
+
 
 ## 🎨 Styling System
 
@@ -246,6 +289,12 @@ npx tsc --build      # Type check with project references
 - **Score tracking** with persistent game history using localStorage
 - **Real-time game results** with animated comparisons
 
+### API Integration
+- **Task-compliant endpoints** - Uses `/play` and `/choices` API endpoints as specified in the assignment
+- **Dual implementation approach** - Main game integrates with provided API for authentic gameplay
+- **Custom game logic implementation** - Tutorial mode showcases self-written game mechanics and rules engine to demonstrate deep understanding of Rock Paper Scissors Spock Lizard algorithms
+- **Seamless user experience** - Both API-driven and tutorial modes provide identical gameplay feel
+
 ### User Experience
 - **Responsive design** optimized for desktop, tablet, and mobile devices
 - **Mobile-first approach** with touch-friendly interfaces
@@ -320,6 +369,7 @@ npm run test:coverage   # Coverage reports
 - **Accessibility testing**: Ensure components work with screen readers
 - **Integration testing**: Verify component and service collaboration
 
+## 💾 Data Storage Strategy
 
 ### Why localStorage for Game History?
 
@@ -368,7 +418,67 @@ For production applications, consider:
 
 The localStorage approach perfectly suits this project's scope while demonstrating proper data management patterns.
 
-## 🎓 Tutorial System
+## �️ Component Architecture
+
+### Component Extraction & Composition
+The project follows a modular component architecture with extracted, reusable components:
+
+#### **Tutorial Components (Extracted from TutorialGameResult)**
+- **`ChoiceDisplay.tsx`** - Reusable choice display with image and label
+- **`GameComparison.tsx`** - Player vs Computer comparison display  
+- **`ResetButton.tsx`** - Reusable reset/try again button
+- **`ResultMessage.tsx`** - Game result message with dynamic styling
+- **`TutorialChoiceGrid.tsx`** - Responsive choice selection grid for tutorial
+- **`TutorialGameResult.tsx`** - Game result display with Try Again functionality
+- **`TutorialHeader.tsx`** - Progress bar, titles, and instructions
+- **`TutorialNavigation.tsx`** - Previous/Next/Skip navigation controls
+- **`TutorialPlaySection.tsx`** - Interactive game practice area
+
+#### **Game Components (Core Game & Display)**
+- **`GameBoard.tsx`** - Main game board orchestrator component
+- **`GameGrid.tsx`** - Game choice grid layout component
+- **`GameResults.tsx`** - Game results display and management
+- **`GameConnections.tsx`** - Visual connections between game choices
+- **`GameComparison.tsx`** - Game comparison logic and display
+- **`PlayerDisplay.tsx`** - Individual player choice display component
+- **`PlayerPlaceholder.tsx`** - Placeholder component for empty player slots
+- **`PlayerResult.tsx`** - Player result display with win/lose styling
+- **`ResultMessage.tsx`** - Game result message component
+- **`ScoreDisplay.tsx`** - Score tracking and display component
+- **`PlayingOverlay.tsx`** - Loading overlay during game play
+- **`TutorialMode.tsx`** - Tutorial mode container component
+
+#### **Layout Components**
+- **`ComparisonLayout.tsx`** - Layout component for game comparisons
+- **`ErrorState.tsx`** - Error state display component
+- **`LoadingState.tsx`** - Loading state display component
+
+#### **History Components (Extracted from GameHistoryTable)**
+- **`GameHistoryTable.tsx`** - Main history modal orchestrator using composition
+- **`HistoryModalHeader.tsx`** - Modal header with title and statistics
+- **`HistoryModalFooter.tsx`** - Modal footer with action buttons
+- **`GameHistoryList.tsx`** - History table container with scrolling
+- **`GameHistoryRow.tsx`** - Individual game history table row
+- **`GameStatsGrid.tsx`** - Reusable statistics display grid
+
+### Utility Functions Organization
+The project extracts utility functions to separate modules for better reusability:
+
+- **`gameUtils.ts`** - Core game-related utilities and helper functions
+- **`gameConnections.ts`** - Game connection utilities for visual connections between choices
+- **`resultUtils.ts`** - Game result styling and messaging utilities
+- **`toastUtils.ts`** - Toast styling and icon utilities  
+- **`historyUtils.ts`** - History display formatting and styling utilities
+- **`bodyScrollLock.ts`** - Body scroll management for modal overlays
+
+### Design Principles
+- **Single Responsibility**: Each component has one focused purpose
+- **Composition over Inheritance**: Complex components built from smaller pieces
+- **Extract and Reuse**: Common functionality extracted to utility functions
+- **Type Safety**: Comprehensive TypeScript interfaces for all components
+- **Clean Separation**: UI components consume utility functions, not inline logic
+
+## �🎓 Tutorial System
 
 ### Interactive Learning Experience
 The game features a comprehensive tutorial system designed for first-time users:
@@ -395,6 +505,12 @@ TutorialMode.tsx
 ├── TutorialPlaySection.tsx   # Interactive game practice area
 ├── TutorialChoiceGrid.tsx    # Responsive choice selection grid
 └── TutorialGameResult.tsx    # Game result display with Try Again
+
+// Extracted reusable components (shared between tutorial and game)
+├── ChoiceDisplay.tsx         # Reusable choice display with image and label
+├── GameComparison.tsx        # Player vs Computer comparison display
+├── ResetButton.tsx           # Reusable reset/try again button
+└── ResultMessage.tsx         # Game result message with dynamic styling
 ```
 
 ### Content Management

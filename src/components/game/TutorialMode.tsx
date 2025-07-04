@@ -1,3 +1,4 @@
+// Tutorial mode component for guided game learning
 import { useState } from 'react'
 import type { Choice } from '../../models/game'
 import type { TutorialModeProps } from '../../models/tutorial'
@@ -14,8 +15,11 @@ export default function TutorialMode({
   className,
   isFirstTime = false,
 }: TutorialModeProps) {
+  // Tutorial navigation state
   const [currentStep, setCurrentStep] = useState(0)
   const [showChoices, setShowChoices] = useState(false)
+  
+  // Game simulation state
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null)
   const [computerChoice, setComputerChoice] = useState<Choice | null>(null)
   const [gameResult, setGameResult] = useState<'win' | 'lose' | 'tie' | null>(null)
@@ -28,6 +32,7 @@ export default function TutorialMode({
   const welcomeDescription = getWelcomeDescription(isFirstTime, currentStep, currentTutorialStep)
 
   const handleNext = () => {
+    // Show choices at step 3 (play demonstration step)
     if (currentStep === 3) {
       setShowChoices(true)
     }
@@ -39,6 +44,7 @@ export default function TutorialMode({
   const handlePrevious = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1)
+      // Keep choices visible when going back from step 4
       if (currentStep === 4) {
         setShowChoices(true)
       }
