@@ -2,6 +2,12 @@
 
 A modern implementation of the classic Rock Paper Scissors game with the extended Spock and Lizard rules, built with React, TypeScript, and Vite.
 
+## 🌐 Live Demo
+
+**🎮 [Play the Game Live](https://code-challenge-dhcy.vercel.app/)**
+
+The application is deployed on Vercel and available for immediate play and exploration.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -264,7 +270,9 @@ npm run dev          # Start development server
 npm run preview      # Preview production build
 
 # Building
-npm run build        # Build for production
+npm run build        # Build for production (runs tests first)
+npm run build:no-tests # Build for production without running tests
+npm run build:coverage # Build for production with test coverage
 
 # Testing
 npm test             # Run tests in watch mode
@@ -280,6 +288,17 @@ npm run format:scss  # Format only SCSS files
 # Type Checking
 npx tsc --build      # Type check with project references
 ```
+
+### Build Process Quality Gates
+
+The default build command includes automated quality checks:
+
+- **`npm run build`** - Runs the complete test suite before building to ensure code quality
+- **TypeScript compilation** - Type checking prevents runtime errors
+- **Test validation** - Unit tests must pass before deployment
+- **Production optimization** - Vite optimizes bundle size and performance
+
+This approach ensures that only tested, type-safe code reaches production environments.
 
 ## 🎮 Game Features
 

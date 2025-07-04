@@ -6,7 +6,7 @@ import { describe, expect, it, vi } from 'vitest'
 import ReloadButton from '../ReloadButton'
 
 // Mock the SVG import
-vi.mock('../../../assets/reload.svg?react', () => ({
+vi.mock('../../../assets/icons/reload.svg?react', () => ({
   default: () => <svg data-testid="reload-icon" />,
 }))
 
